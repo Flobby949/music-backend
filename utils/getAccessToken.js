@@ -7,7 +7,7 @@ const APPSECRET = 'c1196088d8df3a6f629ba1faf6c10cb6'
 const URL = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${APPID}&secret=${APPSECRET}`
 // 引入node.js的文件操作模块(自带)
 const fs = require('fs')
-// 引入node.js的文件操作模块(自带)
+// 引入node.js的文件路径模块(自带)
 const path = require('path');
 // 定义accesstoken缓存路径和文件名
 const fileName = path.resolve(__dirname, './access_token.json')
@@ -63,7 +63,7 @@ const getAccessToken = async () => {
 // 定时器，快到7200s就更新accesstoken
 setInterval(async () => {
     await updateAccessToken()
-}, (7200 - 300) * 1000 )
+}, (7200 -300) * 1000 )
 
 updateAccessToken()
 
