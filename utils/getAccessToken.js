@@ -65,6 +65,6 @@ setInterval(async () => {
     await updateAccessToken()
 }, (7200 -300) * 1000 )
 
-updateAccessToken()
+// updateAccessToken()
 
 module.exports = getAccessToken
