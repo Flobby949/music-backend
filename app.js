@@ -29,10 +29,10 @@ app.use(async (ctx, next) => {
 })
 
 // 通过require引入xxxxx模块
-const student = require('./controller/playlist.js')
+const playlist = require('./controller/playlist.js')
 
 // 给student模块使用定义根路由为 '/xxxxx'
-router.use('/playlist', student.routes())
+router.use('/playlist', playlist.routes())
 
 // 使用路由
 app.use(router.routes())
