@@ -2,7 +2,7 @@
 const Router = require('koa-router');
 // 创建路由对象
 const router = new Router()
-// 引入封装的调用云函数模块
+// 引入封装的调用云函数模块、操作云数据库模块
 const callCloudFn = require('../utils/callCloudFn');
 const callCloudDB = require('../utils/callCloudDB');
 
@@ -60,7 +60,7 @@ router.post('/update', async(ctx, next) => {
 // 删除歌单
 router.post('/delete', async(ctx, next) => {
     const params = ctx.request.query
-    const query =  `db.collection('blog').doc('${params.id}').remove()`
+    const query =  `db.collection('playlist').doc('${params.id}').remove()`
     const res = await callCloudDB(ctx, 'databasedelete', query)
     ctx.body = {
         code: 20000,
