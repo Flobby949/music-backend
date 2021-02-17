@@ -8,11 +8,11 @@ const cloudStorage = {
         // 获取文件上传链接
         const ACCESS_TOKEN = await getAccessToken()
         const file = ctx.request.files.file // 客户端文件对象
-        const path = `swiper/${Data.now()}-${Math.random()}-${file.name}`  // 云存储路径
+        const path = `swiper/${Date.now()}-${Math.random()}-${file.name}`  // 云存储路径
         // 封装请求相关操作，包括请求方法，请求地址，请求体json对象，返回值转json
         const options = {
             method: 'POST',
-            uri: `https://api.weixin.qq.com/tcb/uploadfile?accrss_token=${ACCESS_TOKEN}`,
+            uri: `https://api.weixin.qq.com/tcb/uploadfile?access_token=${ACCESS_TOKEN}`,
             body: {
                 path,
                 env: ctx.state.env
@@ -57,7 +57,7 @@ const cloudStorage = {
         const ACCESS_TOKEN = await getAccessToken()
         const options = {
             method: 'POST',
-            uri: `https://api.weixin.qq.com/tcb/batchdownloadfile?accrss_token=${ACCESS_TOKEN}`,
+            uri: `https://api.weixin.qq.com/tcb/batchdownloadfile?access_token=${ACCESS_TOKEN}`,
             body: {
                 env: ctx.state.env,
                 file_list: fileList,
@@ -79,7 +79,7 @@ const cloudStorage = {
         const ACCESS_TOKEN = await getAccessToken()
         const options = {
             method: 'POST',
-            uri: `https://api.weixin.qq.com/tcb/batchdeletefile?accrss_token=${ACCESS_TOKEN}`,
+            uri: `https://api.weixin.qq.com/tcb/batchdeletefile?access_token=${ACCESS_TOKEN}`,
             body: {
                 fileid_list,
                 env: ctx.state.env,
