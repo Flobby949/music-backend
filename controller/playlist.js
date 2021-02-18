@@ -23,6 +23,7 @@ router.get('/list', async (ctx, next) => {
         // 反序列化，取出data
         data = JSON.parse(res.resp_data).data
     }
+    console.log(data)
     // 向客户端返回结果
     ctx.body = {
         data,

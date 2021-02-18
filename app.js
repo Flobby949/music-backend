@@ -31,14 +31,15 @@ app.use(async (ctx, next) => {
 // 通过require引入xxxxx模块
 const playlist = require('./controller/playlist.js')
 const swiper = require('./controller/swiper.js')
+const blog = require('./controller/blog.js')
 
 // 给student模块使用定义根路由为 '/xxxxx'
 router.use('/playlist', playlist.routes())
 router.use('/swiper', swiper.routes())
+router.use('/blog', blog.routes())
 
 // 使用路由
 app.use(router.routes())
-
 app.use(router.allowedMethods())
 
 // 对3000端口监听，这是nodejs的默认端口，如果被占用，可以停止相应进程或换端口
